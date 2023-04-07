@@ -17,6 +17,7 @@ const RegisterForm = () => {
         password: "",
         profession: "",
         sex: "male",
+        name: "",
         qualities: [],
         licence: false
     });
@@ -40,6 +41,15 @@ const RegisterForm = () => {
         }));
     };
     const validatorConfig = {
+        name: {
+            isRequired: {
+                message: "Имя обязательно для заполнения"
+            },
+            min: {
+                message: "Имя должно состоять минимум из 5 символов",
+                value: 5
+            }
+        },
         email: {
             isRequired: {
                 message: "Электронная почта обязательна для заполнения"
@@ -104,6 +114,13 @@ const RegisterForm = () => {
 
     return (
         <form onSubmit={handleSubmit}>
+            <TextField
+                label="Имя"
+                name="name"
+                value={data.name}
+                onChange={handleChange}
+                error={errors.name}
+            />
             <TextField
                 label="Электронная почта"
                 name="email"

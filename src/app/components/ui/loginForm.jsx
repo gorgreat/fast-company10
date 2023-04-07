@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import { validator } from "../../utils/validator";
 import TextField from "../common/form/textField";
 import CheckBoxField from "../common/form/checkBoxField";
-import { useLogin } from "../../hooks/useLogin";
+import { useAuth } from "../../hooks/useAuth";
 
 const LoginForm = () => {
-    const { signIn } = useLogin();
+    const { signIn } = useAuth();
     const [data, setData] = useState({
         email: "",
         password: "",
